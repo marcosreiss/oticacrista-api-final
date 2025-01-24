@@ -107,5 +107,5 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ---
 
-**Observação**: Para dúvidas ou suporte, entre em contato pelo e-mail: suporte@oticacrista.com.br.
+**Observação**: Para dúvidas ou suporte, entre em contato pelo e-mail: m.vinicius.sr11@gmail.com.
 
