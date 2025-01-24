@@ -1,0 +1,6 @@
+@oticacrista_api_final_HostAddress = http://localhost:5240
+
+GET {{oticacrista_api_final_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
