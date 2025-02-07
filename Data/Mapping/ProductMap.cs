@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SistOtica.Models.Product;
 
-namespace SistOtica.Data.Mapping
+namespace OticaCrista.Data.Mapping
 {
     public class ProductMap
     {

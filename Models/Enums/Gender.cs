@@ -1,4 +1,4 @@
-﻿namespace OticaCrista.Model.Models.Enums
+﻿namespace OticaCrista.Models.Enums
 {
     public enum Gender
     {

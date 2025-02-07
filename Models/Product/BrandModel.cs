@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace SistOtica.Models.Product
+﻿namespace OticaCrista.Models.Product
 {
     public class BrandModel
     {

@@ -1,4 +1,4 @@
-﻿namespace SistOtica.Models.Enums
+﻿namespace OticaCrista.Models.Enums
 {
     public enum FrameType
     {

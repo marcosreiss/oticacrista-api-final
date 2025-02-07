@@ -1,8 +1,6 @@
-﻿using SistOtica.Models.Sale;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SistOtica.Models.Product
+namespace OticaCrista.Models.Product
 {
     public class ProductModel
     {
@@ -24,8 +22,6 @@ namespace SistOtica.Models.Product
         public required int BrandId { get; set; }
 
         public virtual BrandModel Brand { get; set; } = null!;
-
-        
 
     }
 }

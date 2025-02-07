@@ -1,7 +1,7 @@
-﻿using SistOtica.Models.Enums;
+﻿using OticaCrista.Models.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SistOtica.Models.Sale
+namespace OticaCrista.Models.Sale
 {
     public class PaymentModel
     {

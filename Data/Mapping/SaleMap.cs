@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SistOtica.Models.Sale;
 
-namespace SistOtica.Data.Mapping
+namespace OticaCrista.Data.Mapping
 {
     public class SaleMap
     {

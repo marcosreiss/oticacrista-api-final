@@ -1,6 +1,5 @@
-﻿using SistOtica.Models.Sale;
-
-namespace SistOtica.Models.Service
+﻿
+namespace OticaCrista.Models.Service
 {
     public class ServiceModel
     {

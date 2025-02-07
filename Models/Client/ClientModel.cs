@@ -1,57 +1,72 @@
-﻿using OticaCrista.Model.Models.Enums;
-using SistOtica.Models.Sale;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using OticaCrista.Models.Enums;
+using OticaCrista.Models.Sale;
 
-namespace SistOtica.Models.Client
+namespace OticaCrista.Models.Client
 {
     public class ClientModel
     {
-        public int Id { get; set; }
+        #region Identification
+            public int Id { get; set; }
 
-        [Required]
-        public string Name { get; set; } = string.Empty;
+            [Required]
+            public string Name { get; set; } = string.Empty;
 
-        [Required]
-        public string Cpf {  get; set; } = string.Empty;
+            [Required]
+            public string Cpf { get; set; } = string.Empty;
 
-        public string? Rg { get; set; }
+            public string? Rg { get; set; }
+        #endregion
 
-        public ICollection<ClientContact>? Contacts { get; set; } = new List<ClientContact>();
-        public ICollection<ClientReferences>? References { get; set; } = new List<ClientReferences>();
+        #region Contact Information
+            public string PhoneNumber1 { get; set; } = string.Empty;
+            public string PhoneNumber2 { get; set; } = string.Empty;
+            public string PhoneNumber3 { get; set; } = string.Empty;
 
-        public DateOnly BornDate {  get; set; }
+            public string? EmailAddress { get; set; }
+        #endregion
 
-        public Gender Gender { get; set; }
+        #region References
+            public string ReferenceName1 { get; set; } = string.Empty;
+            public string ReferencePhone1 { get; set; } = string.Empty;
 
-        public string? FatherName { get; set; } 
+            public string ReferenceName2 { get; set; } = string.Empty;
+            public string ReferencePhone2 { get; set; } = string.Empty;
 
-        public string? MotherName { get; set; }
+            public string ReferenceName3 { get; set; } = string.Empty;
+            public string ReferencePhone3 { get; set; } = string.Empty;
+        #endregion
 
-        public string? SpouseName { get; set; }
+        #region Personal Information
+            public DateOnly BornDate { get; set; }
+            public Gender Gender { get; set; }
 
-        public string? EmailAddress { get; set; }
+            public string? FatherName { get; set; }
+            public string? MotherName { get; set; }
+            public string? SpouseName { get; set; }
+        #endregion
 
-        public string? Company { get; set; }
+        #region Employment Information
+            public string? Company { get; set; }
+            public string? Ocupation { get; set; }
+        #endregion
 
-        public string? Ocupation { get; set; }
+        #region Address
+            public string? Street { get; set; }
+            public string? Neighborhood { get; set; }
+            public string? City { get; set; }
+            public string? Uf { get; set; }
+            public string? Cep { get; set; }
+            public string? AddressComplement { get; set; }
+        #endregion
 
-        public string? Street { get; set; }
+        #region Status and Observations
+            public bool Negativated { get; set; }
+            public string? Observation { get; set; }
+        #endregion
 
-        public string? Neighborhood { get; set; }
-
-        public string? City { get; set; }
-
-        public string? Uf { get; set; }
-
-        public string? Cep { get; set; }
-
-        public string? AddressComplement { get; set; }
-
-        public bool Negativated { get; set; }
-
-        public string? Observation { get; set; }
-
-        public ICollection<SaleModel> Sales { get; set; } = new List<SaleModel>();
-
+        #region Relations
+            public ICollection<SaleModel> Sales { get; set; } = new List<SaleModel>();
+        #endregion
     }
 }

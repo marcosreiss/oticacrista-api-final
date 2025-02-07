@@ -1,9 +1,8 @@
-﻿using OticaCrista.Model.Models.Sale;
-using SistOtica.Models.Client;
-using SistOtica.Models.Enums;
+﻿using OticaCrista.Models.Client;
+using OticaCrista.Models.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SistOtica.Models.Sale
+namespace OticaCrista.Models.Sale
 {
     public class SaleModel
     {
@@ -20,7 +19,7 @@ namespace SistOtica.Models.Sale
         [ForeignKey("ClientId")]
         [InverseProperty("Sales")]
         public int ClientId { get; set; }
-        public ClientModel Client { get; set; } 
+        public ClientModel Client { get; set; } = null!;
 
         #endregion
 
