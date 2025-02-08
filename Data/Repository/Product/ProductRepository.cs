@@ -13,9 +13,12 @@ namespace OticaCrista.Data.Repository.Product
             _context = context;
         }
 
-        public async Task<IEnumerable<ProductModel>> GetAllAsync()
+        public async Task<IEnumerable<ProductModel>> GetAllAsync(int skip, int take)
         {
-            return await _context.Products.Include(p => p.Brand).ToListAsync();
+            return await _context.Products
+                .Skip(skip)
+                .Take(take)
+                .Include(p => p.Brand).ToListAsync();
         }
 
         public async Task<ProductModel?> GetByIdAsync(int id)

@@ -13,9 +13,9 @@ namespace OticaCrista.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Entry>> GetAllAsync()
+        public async Task<IEnumerable<Entry>> GetAllAsync(int skip, int take)
         {
-            return await _context.Entries.ToListAsync();
+            return await _context.Entries.Skip(skip).Take(take).ToListAsync();
         }
 
         public async Task<Entry?> GetByIdAsync(int id)
