@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OticaCrista.Data.Mapping;
@@ -8,7 +9,7 @@ using OticaCrista.Models.Sale;
 
 namespace OticaCrista.Data
 {
-    public class OticaCristaContext : DbContext
+    public class OticaCristaContext : IdentityDbContext<ApplicationUser>
     {
         public OticaCristaContext(DbContextOptions<OticaCristaContext> options)
             : base(options)

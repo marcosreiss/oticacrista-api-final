@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using OticaCrista.Data;
 using OticaCrista.Models;
+using OticaCrista.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +41,9 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = false
     };
 });
+
+builder.Services.AddScoped<UserManager<ApplicationUser>>();
+builder.Services.AddScoped<AuthService>();
 
 builder.Services.AddAuthorization();
 
