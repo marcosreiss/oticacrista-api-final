@@ -19,6 +19,6 @@ namespace OticaCrista.Models.Sale
 
         public int Installments { get; set; }
 
-        public DateOnly DueDate { get; set; }
+        public DateOnly DueDate { get; set; } // primeiro vencimento
     }
 }

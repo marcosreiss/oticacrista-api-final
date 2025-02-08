@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SistOtica.Models.Sale;
+using OticaCrista.Models.Sale;
 
 namespace OticaCrista.Data.Mapping
 {

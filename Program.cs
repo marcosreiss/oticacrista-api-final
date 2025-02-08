@@ -1,9 +1,21 @@
+using Microsoft.EntityFrameworkCore;
+using OticaCrista.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+builder.Services.AddDbContext<OticaCristaContext>(o =>
+{
+    o.UseMySQL(builder.Configuration.GetConnectionString("ConnectionString")!);
+});
+
+builder.Services.AddDateOnlyTimeOnlyStringConverters();
+
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

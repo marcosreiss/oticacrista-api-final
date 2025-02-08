@@ -2,11 +2,10 @@
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OticaCrista.Data.Mapping;
-using OticaCrista.Model.Models.Sale;
-using SistOtica.Models.Client;
-using SistOtica.Models.Product;
-using SistOtica.Models.Sale;
-using SistOtica.Models.Service;
+using OticaCrista.Models.Client;
+using OticaCrista.Models.Product;
+using OticaCrista.Models.Sale;
+using OticaCrista.Models.Service;
 
 namespace OticaCrista.Data
 {
@@ -30,6 +29,7 @@ namespace OticaCrista.Data
         public DbSet<SaleProductItem> SalesProducts { get; set; }
         public DbSet<SaleServiceItem> SalesServices { get; set; }
         public DbSet<PaymentModel> Payments { get; set; }
+        public DbSet<Entry> Entries { get; set; }
 
 
 
