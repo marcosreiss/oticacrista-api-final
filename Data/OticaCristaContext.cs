@@ -2,10 +2,9 @@
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OticaCrista.Data.Mapping;
-using OticaCrista.Models.Client;
+using OticaCrista.Models;
 using OticaCrista.Models.Product;
 using OticaCrista.Models.Sale;
-using OticaCrista.Models.Service;
 
 namespace OticaCrista.Data
 {

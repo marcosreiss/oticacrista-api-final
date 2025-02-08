@@ -1,5 +1,4 @@
-﻿using OticaCrista.Models.Client;
-using OticaCrista.Models.Enums;
+﻿using OticaCrista.Models.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OticaCrista.Models.Sale

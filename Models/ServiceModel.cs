@@ -1,5 +1,4 @@
-﻿
-namespace OticaCrista.Models.Service
+﻿namespace OticaCrista.Models
 {
     public class ServiceModel
     {

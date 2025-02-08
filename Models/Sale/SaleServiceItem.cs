@@ -1,6 +1,4 @@
-﻿using OticaCrista.Models.Service;
-
-namespace OticaCrista.Models.Sale
+﻿namespace OticaCrista.Models.Sale
 {
     public class SaleServiceItem
     {
