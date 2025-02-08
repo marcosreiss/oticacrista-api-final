@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using OticaCrista.Data.Repository;
 using OticaCrista.Models;
 using OticaCrista.Services;
 
@@ -9,12 +9,12 @@ namespace OticaCrista.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly AuthRepository _authRepository;
         private readonly AuthService _authService;
 
-        public AuthController(UserManager<ApplicationUser> userManager, AuthService authService)
+        public AuthController(AuthRepository authRepository, AuthService authService)
         {
-            _userManager = userManager;
+            _authRepository = authRepository;
             _authService = authService;
         }
 
@@ -22,7 +22,7 @@ namespace OticaCrista.Controllers
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
             var user = new ApplicationUser { UserName = model.Username, Email = model.Email };
-            var result = await _userManager.CreateAsync(user, model.Password);
+            var result = await _authRepository.RegisterUserAsync(user, model.Password);
 
             if (!result.Succeeded)
                 return BadRequest(result.Errors);
@@ -33,8 +33,8 @@ namespace OticaCrista.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
-            var user = await _userManager.FindByNameAsync(model.Username);
-            if (user == null || !await _userManager.CheckPasswordAsync(user, model.Password))
+            var user = await _authRepository.FindUserByNameAsync(model.Username);
+            if (user == null || !await _authRepository.CheckPasswordAsync(user, model.Password))
                 return Unauthorized(new { message = "Invalid credentials" });
 
             var token = await _authService.GenerateJwtToken(user);
@@ -44,13 +44,9 @@ namespace OticaCrista.Controllers
         [HttpPost("assign-role")]
         public async Task<IActionResult> AssignRole([FromBody] AssignRoleModel model)
         {
-            var user = await _userManager.FindByNameAsync(model.Username);
-            if (user == null)
-                return NotFound(new { message = "User not found" });
-
-            var result = await _userManager.AddToRoleAsync(user, model.Role);
-            if (!result.Succeeded)
-                return BadRequest(result.Errors);
+            var success = await _authRepository.AssignRoleAsync(model.Username, model.Role);
+            if (!success)
+                return BadRequest(new { message = "Failed to assign role" });
 
             return Ok(new { message = "Role assigned successfully" });
         }

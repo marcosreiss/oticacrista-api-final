@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using OticaCrista.Data;
+using OticaCrista.Data.Repository;
 using OticaCrista.Models;
 using OticaCrista.Services;
 
@@ -41,6 +42,8 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = false
     };
 });
+
+builder.Services.AddScoped<AuthRepository>();
 
 builder.Services.AddScoped<UserManager<ApplicationUser>>();
 builder.Services.AddScoped<AuthService>();
