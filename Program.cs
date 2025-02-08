@@ -62,6 +62,17 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddDateOnlyTimeOnlyStringConverters();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin()   // Permite qualquer origem
+                  .AllowAnyMethod()   // Permite qualquer método (GET, POST, PUT, DELETE, etc.)
+                  .AllowAnyHeader();  // Permite qualquer cabeçalho
+        });
+});
+
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -111,6 +122,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowAll");
 
 app.UseAuthentication();
 app.UseAuthorization();
